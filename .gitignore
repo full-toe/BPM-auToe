@@ -1,0 +1,22 @@
+# --- no se publican ---
+# bases de música de prueba (GTZAN, Ballroom, GiantSteps): no son nuestras
+pruebas/datos/
+# copias de cómo estaba antes de la mudanza
+respaldo/
+# notas internas de la carpeta local y plan de trabajo interno
+LEEME.md
+docs/plan_ritmo_app_externa.md
+# copias de módulos de otro proyecto y registros de corridas
+pruebas/*_respaldo*
+pruebas/*.log
+pruebas/progreso.txt
+
+# --- se generan ---
+app/portable/
+app/construccion/
+instalador/salida/
+__pycache__/
+*.pyc
+*.log
+ritmo_app_config.json
+*.lnk
