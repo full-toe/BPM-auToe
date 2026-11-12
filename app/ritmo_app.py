@@ -36,7 +36,7 @@ from pythonosc.osc_server import ThreadingOSCUDPServer
 from pythonosc.udp_client import SimpleUDPClient
 from scipy.signal import butter, sosfilt, sosfilt_zi
 
-VERSION = '0.7.0'
+VERSION = '0.7.1'
 NOMBRE = 'BPM auToe'
 OSC = '/BPMauToe/'                  # prefijo de todas las direcciones OSC
 # empaquetada (.exe instalado o portable): motor e ícono van adentro.

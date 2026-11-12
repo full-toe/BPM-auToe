@@ -107,5 +107,10 @@ class Cartel:
 
 	def _instalar(self, archivo):
 		# el instalador espera a que la app se cierre, instala y la vuelve a abrir
-		subprocess.Popen([archivo, '/SILENT', '/SUPPRESSMSGBOXES', '/NORESTART'], close_fds=True)
+		# Entorno limpio: si el instalador (y la app que vuelve a abrir) heredan las variables de PyInstaller
+		# de esta app, la app nueva busca la carpeta temporal de esta (que se borra al cerrar) y falla con
+		# «Failed to load Python DLL».
+		env = {k: v for k, v in os.environ.items() if not k.upper().startswith(('_PYI', '_MEI'))}
+		env['PYINSTALLER_RESET_ENVIRONMENT'] = '1'
+		subprocess.Popen([archivo, '/SILENT', '/SUPPRESSMSGBOXES', '/NORESTART'], close_fds=True, env=env)
 		self.cerrar_app()

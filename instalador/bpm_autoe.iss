@@ -51,5 +51,7 @@ Name: "{userprograms}\{#Nombre}"; Filename: "{app}\{#Exe}"; AppUserModelID: "Toe
 Name: "{userdesktop}\{#Nombre}"; Filename: "{app}\{#Exe}"; AppUserModelID: "Toe.BPMAUTOE"; Tasks: escritorio
 
 [Run]
-; también corre en las actualizaciones silenciosas: la app se vuelve a abrir sola
-Filename: "{app}\{#Exe}"; Description: "Abrir {#Nombre}"; Flags: nowait postinstall
+; También corre en las actualizaciones silenciosas: la app se vuelve a abrir sola.
+; Se abre con PYINSTALLER_RESET_ENVIRONMENT=1 porque la app que lanzó la actualización (0.7.0) le pasa al
+; instalador sus variables de PyInstaller; sin esto la app nueva falla con «Failed to load Python DLL».
+Filename: "{cmd}"; Parameters: "/c set PYINSTALLER_RESET_ENVIRONMENT=1&& start """" ""{app}\{#Exe}"""; Description: "Abrir {#Nombre}"; Flags: nowait postinstall runhidden

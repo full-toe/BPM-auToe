@@ -2,6 +2,9 @@
 
 Cada sección «## versión» es lo que muestra el cartel de «Hay una versión nueva» (una línea por cambio).
 
+## 0.7.1
+- Arreglo: después de actualizar, la app se vuelve a abrir bien (antes salía el error «Failed to load Python DLL»).
+
 ## 0.7.0
 - Ahora es una app instalable: aparece en el menú Inicio y se desinstala desde Configuración de Windows.
 - Al abrirla avisa si hay una versión nueva y se actualiza con un clic.
